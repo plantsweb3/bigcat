@@ -226,7 +226,7 @@ img {
   display: flex;
   align-items: flex-start;
   justify-content: center;
-  padding-top: 30px;
+  padding-top: 10px;
   overflow: hidden;
 }
 
@@ -1163,6 +1163,10 @@ img {
 
   .section-subtitle {
     font-size: 1rem;
+  }
+
+  .hero {
+    padding-top: 10px;
   }
 
   .hero-logo {
