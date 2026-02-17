@@ -876,7 +876,7 @@ img {
   position: absolute;
   font-size: 1.4rem;
   color: #fff;
-  animation: bounce-right 1.5s ease-in-out infinite;
+  animation: bounce-right 3s cubic-bezier(0.45, 0, 0.55, 1) infinite;
   filter: brightness(2);
 }
 
