@@ -116,6 +116,47 @@ if (musicToggle) {
   });
 }
 
+// ==================== SIZE MATTERS AUTO-SCROLL ====================
+const catsScroll = document.querySelector('.cats-scroll');
+let autoScrollStarted = false;
+let autoScrollId = null;
+
+if (catsScroll) {
+  const sizeObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting && !autoScrollStarted) {
+          autoScrollStarted = true;
+          let speed = 0.8;
+          const autoScroll = () => {
+            // Stop if user has manually scrolled or we've reached the end
+            const maxScroll = catsScroll.scrollWidth - catsScroll.clientWidth;
+            if (catsScroll.scrollLeft >= maxScroll) return;
+            catsScroll.scrollLeft += speed;
+            autoScrollId = requestAnimationFrame(autoScroll);
+          };
+          autoScrollId = requestAnimationFrame(autoScroll);
+        }
+        // If it leaves view, allow re-trigger and stop current scroll
+        if (!entry.isIntersecting) {
+          autoScrollStarted = false;
+          if (autoScrollId) cancelAnimationFrame(autoScrollId);
+        }
+      });
+    },
+    { threshold: 0.3 }
+  );
+  sizeObserver.observe(catsScroll);
+
+  // Stop auto-scroll if user touches/scrolls manually
+  catsScroll.addEventListener('pointerdown', () => {
+    if (autoScrollId) cancelAnimationFrame(autoScrollId);
+  });
+  catsScroll.addEventListener('wheel', () => {
+    if (autoScrollId) cancelAnimationFrame(autoScrollId);
+  });
+}
+
 // ==================== PARALLAX (subtle) ====================
 const heroBigcat = document.querySelector('.hero-bigcat');
 const heroLogo = document.querySelector('.hero-logo');

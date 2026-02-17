@@ -706,6 +706,15 @@ img {
   50% { opacity: 0.5; }
 }
 
+/* Green stock chart arrow */
+.chart-arrow {
+  width: 100%;
+  min-width: max-content;
+  height: 40px;
+  margin-bottom: -8px;
+  opacity: 0.7;
+}
+
 /* Cats */
 .cats-scroll {
   overflow-x: auto;
