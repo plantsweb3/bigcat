@@ -69,7 +69,7 @@ window.onYouTubeIframeAPIReady = function () {
     height: '1',
     videoId: 'RBw7uvG19uw',
     playerVars: {
-      autoplay: 1,
+      autoplay: 0,
       loop: 1,
       start: 38,
       playlist: 'RBw7uvG19uw',
@@ -79,30 +79,11 @@ window.onYouTubeIframeAPIReady = function () {
       playsinline: 1,
     },
     events: {
-      onReady: (event) => {
-        // Try to play unmuted immediately
-        event.target.unMute();
-        event.target.setVolume(50);
-        event.target.playVideo();
-        setPlayingUI();
-      },
-      onStateChange: (event) => {
-        // If the browser blocked unmuted autoplay, the player won't actually play.
-        // Detect that and fall back to muted autoplay + prompt user.
-        if (event.data === YT.PlayerState.PLAYING && !isPlaying) {
-          setPlayingUI();
-        }
+      onReady: () => {
+        // Don't autoplay — wait for user to click PLAY ME
       },
     },
   });
-
-  // Browsers may block unmuted autoplay. After a short delay, check if
-  // the player is actually muted despite our request — if so, update UI.
-  setTimeout(() => {
-    if (player && typeof player.isMuted === 'function' && player.isMuted()) {
-      setMutedUI();
-    }
-  }, 1500);
 };
 
 if (musicToggle) {
