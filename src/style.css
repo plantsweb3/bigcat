@@ -710,9 +710,9 @@ img {
 .chart-arrow {
   width: 100%;
   min-width: max-content;
-  height: 40px;
+  height: 80px;
   margin-bottom: -8px;
-  opacity: 0.7;
+  opacity: 0.85;
 }
 
 /* Cats */
