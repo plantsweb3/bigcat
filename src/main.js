@@ -39,18 +39,23 @@ const musicToggle = document.getElementById('musicToggle');
 const musicIcon = document.getElementById('musicIcon');
 const musicLabel = document.getElementById('musicLabel');
 
+// Start bouncing immediately on load
+if (musicToggle) musicToggle.classList.add('bounce');
+
 function setPlayingUI() {
   isPlaying = true;
   musicIcon.textContent = '\u{1F50A}';
   musicLabel.textContent = 'PLAYING';
   musicToggle.classList.add('playing');
+  musicToggle.classList.remove('bounce');
 }
 
 function setMutedUI() {
   isPlaying = false;
   musicIcon.textContent = '\u{1F507}';
-  musicLabel.textContent = 'UNMUTE';
+  musicLabel.textContent = 'PLAY ME';
   musicToggle.classList.remove('playing');
+  musicToggle.classList.add('bounce');
 }
 
 // Load YouTube IFrame API

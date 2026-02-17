@@ -707,13 +707,6 @@ img {
 }
 
 /* Green stock chart arrow */
-.chart-arrow {
-  width: 100%;
-  min-width: max-content;
-  height: 80px;
-  margin-bottom: -8px;
-  opacity: 0.85;
-}
 
 /* Cats */
 .cats-scroll {
@@ -1117,6 +1110,16 @@ img {
 @keyframes pulse-music {
   0%, 100% { box-shadow: 0 4px 20px rgba(168, 85, 247, 0.4); }
   50% { box-shadow: 0 4px 30px rgba(236, 72, 153, 0.6), 0 0 50px rgba(168, 85, 247, 0.3); }
+}
+
+.music-toggle.bounce {
+  animation: bounce-btn 1.5s ease-in-out infinite;
+}
+
+@keyframes bounce-btn {
+  0%, 100% { transform: translateY(0); }
+  40% { transform: translateY(-12px); }
+  60% { transform: translateY(-4px); }
 }
 
 /* ==================== FADE IN ANIMATIONS ==================== */
