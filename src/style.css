@@ -224,8 +224,9 @@ img {
   width: 100%;
   min-height: 100vh;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
+  padding-top: 30px;
   overflow: hidden;
 }
 
@@ -406,6 +407,26 @@ img {
 @keyframes gentle-bob {
   0% { transform: translateY(0); }
   100% { transform: translateY(-8px); }
+}
+
+.hero-contract {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.hero-contract .contract-label {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.hero-contract .contract-btn {
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-image: none;
+}
+
+.hero-contract .contract-btn:hover {
+  background: rgba(255, 255, 255, 0.25);
 }
 
 .hero-buttons {
@@ -1183,8 +1204,8 @@ img {
   }
 
   .hero-buttons {
-    flex-direction: column;
-    align-items: center;
+    flex-direction: row;
+    gap: 10px;
   }
 
   .footer-buttons {

@@ -31,6 +31,23 @@ if (copyBtn) {
   });
 }
 
+// Hero contract address copy
+const copyBtnHero = document.getElementById('copyCAHero');
+const caTextHero = document.getElementById('caTextHero');
+const toastHero = document.getElementById('copiedToastHero');
+
+if (copyBtnHero) {
+  copyBtnHero.addEventListener('click', async () => {
+    try {
+      await navigator.clipboard.writeText(caTextHero.textContent);
+      toastHero.classList.add('show');
+      setTimeout(() => toastHero.classList.remove('show'), 2000);
+    } catch {
+      // Clipboard API not available
+    }
+  });
+}
+
 // ==================== YOUTUBE MUSIC PLAYER ====================
 let player = null;
 let isPlaying = false;
