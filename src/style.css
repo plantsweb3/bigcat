@@ -856,6 +856,35 @@ img {
   border-radius: 3px;
 }
 
+.scroll-arrow-bar {
+  width: 100%;
+  margin-top: 12px;
+  overflow: hidden;
+}
+
+.scroll-arrow-track {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 32px;
+  background: linear-gradient(90deg, var(--purple), var(--pink));
+  border-radius: 16px;
+  position: relative;
+}
+
+.scroll-arrow-icon {
+  position: absolute;
+  font-size: 1.4rem;
+  color: #fff;
+  animation: bounce-right 1.5s ease-in-out infinite;
+  filter: brightness(2);
+}
+
+@keyframes bounce-right {
+  0%, 100% { left: 5%; }
+  50% { left: 88%; }
+}
+
 /* ==================== BIGCAT SIGHTINGS ==================== */
 .sightings {
   position: relative;
@@ -950,6 +979,21 @@ img {
 
 .folder-link:hover .folder-bigcat {
   transform: translateX(-50%) translateY(15%);
+}
+
+.folder-bigcat.peek-anim {
+  animation: bigcat-peek 4s ease-in-out;
+}
+
+@keyframes bigcat-peek {
+  0%   { transform: translateX(-50%) translateY(85%); }
+  15%  { transform: translateX(-50%) translateY(15%); }
+  30%  { transform: translateX(-50%) translateY(85%); }
+  45%  { transform: translateX(-50%) translateY(15%); }
+  60%  { transform: translateX(-50%) translateY(85%); }
+  75%  { transform: translateX(-50%) translateY(15%); }
+  90%  { transform: translateX(-50%) translateY(85%); }
+  100% { transform: translateX(-50%) translateY(85%); }
 }
 
 

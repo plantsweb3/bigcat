@@ -1,5 +1,11 @@
 import './style.css'
 
+// ==================== FORCE SCROLL TO TOP ON LOAD ====================
+if ('scrollRestoration' in history) {
+  history.scrollRestoration = 'manual';
+}
+window.scrollTo(0, 0);
+
 // ==================== SCROLL FADE-IN ====================
 const observer = new IntersectionObserver(
   (entries) => {
@@ -173,3 +179,24 @@ window.addEventListener('scroll', () => {
     heroLogo.style.transform = `translateY(${scrollY * 0.1}px)`;
   }
 });
+
+// ==================== SIGHTINGS BIGCAT PEEK ====================
+const folderBigcat = document.querySelector('.folder-bigcat');
+const sightingsSection = document.querySelector('.sightings');
+
+if (folderBigcat && sightingsSection) {
+  const peekObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          folderBigcat.classList.add('peek-anim');
+          folderBigcat.addEventListener('animationend', () => {
+            folderBigcat.classList.remove('peek-anim');
+          }, { once: true });
+        }
+      });
+    },
+    { threshold: 0.4 }
+  );
+  peekObserver.observe(sightingsSection);
+}
